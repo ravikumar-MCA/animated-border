@@ -1,19 +1,12 @@
 <svg width="800" height="300" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <!-- Wave Gradient -->
-    <linearGradient id="wave-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#00ffff"/>
-      <stop offset="50%" stop-color="#ff00ff"/>
-      <stop offset="100%" stop-color="#00ff00"/>
-    </linearGradient>
-
-    <!-- Border Gradient -->
+    <!-- Gradient for Borders -->
     <linearGradient id="border-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#ff00ff">
-        <animate attributeName="stop-color" values="#ff00ff;#00ffff;#ffff00;#ff00ff" dur="5s" repeatCount="indefinite"/>
+      <stop offset="0%" stop-color="#00ffff">
+        <animate attributeName="stop-color" values="#00ffff;#ff00ff;#00ff00;#ffff00;#00ffff" dur="5s" repeatCount="indefinite"/>
       </stop>
-      <stop offset="100%" stop-color="#00ffff">
-        <animate attributeName="stop-color" values="#00ffff;#ffff00;#ff00ff;#00ffff" dur="5s" repeatCount="indefinite"/>
+      <stop offset="100%" stop-color="#ff00ff">
+        <animate attributeName="stop-color" values="#ff00ff;#00ff00;#ffff00;#00ffff;#ff00ff" dur="5s" repeatCount="indefinite"/>
       </stop>
     </linearGradient>
   </defs>
@@ -21,21 +14,33 @@
   <!-- Background -->
   <rect width="800" height="300" fill="#0a0a0a"/>
 
-  <!-- Animated Wave 1 -->
-  <path d="M0 200 Q 200 100 400 200 T 800 200 V 300 H 0 Z" fill="url(#wave-gradient)" opacity="0.4">
-    <animateTransform attributeName="transform" type="translate" from="-200 0" to="200 0" dur="6s" repeatCount="indefinite"/>
-  </path>
+  <!-- Particle Dots -->
+  <circle cx="100" cy="80" r="3" fill="#00ffff">
+    <animate attributeName="cx" values="100;120;100" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="cy" values="80;100;80" dur="5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="700" cy="200" r="3" fill="#ff00ff">
+    <animate attributeName="cx" values="700;680;700" dur="6s" repeatCount="indefinite"/>
+    <animate attributeName="cy" values="200;220;200" dur="4s" repeatCount="indefinite"/>
+  </circle>
 
-  <!-- Animated Wave 2 -->
-  <path d="M0 220 Q 200 120 400 220 T 800 220 V 300 H 0 Z" fill="url(#wave-gradient)" opacity="0.3">
-    <animateTransform attributeName="transform" type="translate" from="200 0" to="-200 0" dur="8s" repeatCount="indefinite"/>
-  </path>
+  <!-- Connecting Line -->
+  <line x1="100" y1="80" x2="700" y2="200" stroke="#00ffff" stroke-opacity="0.3">
+    <animate attributeName="stroke-opacity" values="0.3;0.8;0.3" dur="3s" repeatCount="indefinite"/>
+  </line>
 
-  <!-- Animated Border -->
+  <!-- Outer Border (Left to Right) -->
   <rect x="10" y="10" width="780" height="280" rx="20" ry="20"
         fill="none" stroke="url(#border-gradient)" stroke-width="6"
-        stroke-dasharray="1000" stroke-dashoffset="1000">
-    <animate attributeName="stroke-dashoffset" from="1000" to="0" dur="3s" repeatCount="indefinite"/>
+        stroke-dasharray="800" stroke-dashoffset="800">
+    <animate attributeName="stroke-dashoffset" from="800" to="0" dur="3s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Inner Border (Right to Left) -->
+  <rect x="20" y="20" width="760" height="260" rx="15" ry="15"
+        fill="none" stroke="url(#border-gradient)" stroke-width="4"
+        stroke-dasharray="800" stroke-dashoffset="0">
+    <animate attributeName="stroke-dashoffset" from="0" to="800" dur="3s" repeatCount="indefinite"/>
   </rect>
 
   <!-- Text -->
