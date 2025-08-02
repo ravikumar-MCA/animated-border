@@ -1,6 +1,5 @@
 <svg width="500" height="500" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <!-- Rainbow Gradient -->
     <linearGradient id="rainbow" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#ff0000">
         <animate attributeName="stop-color" values="#ff0000;#ff7f00;#ffff00;#00ff00;#0000ff;#4b0082;#8b00ff;#ff0000" dur="6s" repeatCount="indefinite"/>
@@ -9,30 +8,27 @@
         <animate attributeName="stop-color" values="#8b00ff;#4b0082;#0000ff;#00ff00;#ffff00;#ff7f00;#ff0000;#8b00ff" dur="6s" repeatCount="indefinite"/>
       </stop>
     </linearGradient>
-
-    <!-- Shadow -->
     <filter id="shadow">
       <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="black" flood-opacity="0.6"/>
     </filter>
   </defs>
 
-  <!-- Animated Circular Border -->
-  <circle cx="250" cy="250" r="200" fill="none" stroke="url(#rainbow)" stroke-width="15" filter="url(#shadow)">
-    <animate attributeName="stroke-dasharray" values="50,1250;1250,50" dur="5s" repeatCount="indefinite"/>
-    <animate attributeName="stroke-dashoffset" values="0;1250" dur="5s" repeatCount="indefinite"/>
+  <!-- Smaller Animated Border -->
+  <circle cx="250" cy="250" r="150" fill="none" stroke="url(#rainbow)" stroke-width="15" filter="url(#shadow)">
+    <animate attributeName="stroke-dasharray" values="50,1000;1000,50" dur="5s" repeatCount="indefinite"/>
+    <animate attributeName="stroke-dashoffset" values="0;1000" dur="5s" repeatCount="indefinite"/>
   </circle>
 
-  <!-- Semi-Transparent Background for Text -->
-  <circle cx="250" cy="250" r="150" fill="black" opacity="0.7"/>
+  <!-- Inner Background -->
+  <circle cx="250" cy="250" r="110" fill="black" opacity="0.7"/>
 
-  <!-- Main Title -->
-  <text x="250" y="240" text-anchor="middle" font-size="30" fill="white" font-family="Arial" font-weight="bold"
+  <!-- Clean Text -->
+  <text x="250" y="240" text-anchor="middle" font-size="25" fill="white" font-family="Arial" font-weight="bold"
         stroke="black" stroke-width="1" style="paint-order: stroke;">
     Hi 👋, I'm Ravi Kumar
   </text>
 
-  <!-- Subtitle -->
-  <text x="250" y="280" text-anchor="middle" font-size="18" fill="white" font-family="Arial"
+  <text x="250" y="270" text-anchor="middle" font-size="15" fill="white" font-family="Arial"
         stroke="black" stroke-width="0.5" style="paint-order: stroke;">
     Full Stack MERN Developer
   </text>
