@@ -1,35 +1,44 @@
-<svg width="500" height="500" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+<svg width="800" height="300" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="rainbow" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#ff0000">
-        <animate attributeName="stop-color" values="#ff0000;#ff7f00;#ffff00;#00ff00;#0000ff;#4b0082;#8b00ff;#ff0000" dur="6s" repeatCount="indefinite"/>
+    <!-- Wave Gradient -->
+    <linearGradient id="wave-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00ffff"/>
+      <stop offset="50%" stop-color="#ff00ff"/>
+      <stop offset="100%" stop-color="#00ff00"/>
+    </linearGradient>
+
+    <!-- Border Gradient -->
+    <linearGradient id="border-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ff00ff">
+        <animate attributeName="stop-color" values="#ff00ff;#00ffff;#ffff00;#ff00ff" dur="5s" repeatCount="indefinite"/>
       </stop>
-      <stop offset="100%" stop-color="#8b00ff">
-        <animate attributeName="stop-color" values="#8b00ff;#4b0082;#0000ff;#00ff00;#ffff00;#ff7f00;#ff0000;#8b00ff" dur="6s" repeatCount="indefinite"/>
+      <stop offset="100%" stop-color="#00ffff">
+        <animate attributeName="stop-color" values="#00ffff;#ffff00;#ff00ff;#00ffff" dur="5s" repeatCount="indefinite"/>
       </stop>
     </linearGradient>
-    <filter id="shadow">
-      <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="black" flood-opacity="0.6"/>
-    </filter>
   </defs>
 
-  <!-- Smaller Animated Border -->
-  <circle cx="250" cy="250" r="150" fill="none" stroke="url(#rainbow)" stroke-width="15" filter="url(#shadow)">
-    <animate attributeName="stroke-dasharray" values="50,1000;1000,50" dur="5s" repeatCount="indefinite"/>
-    <animate attributeName="stroke-dashoffset" values="0;1000" dur="5s" repeatCount="indefinite"/>
-  </circle>
+  <!-- Background -->
+  <rect width="800" height="300" fill="#0a0a0a"/>
 
-  <!-- Inner Background -->
-  <circle cx="250" cy="250" r="110" fill="black" opacity="0.7"/>
+  <!-- Animated Wave 1 -->
+  <path d="M0 200 Q 200 100 400 200 T 800 200 V 300 H 0 Z" fill="url(#wave-gradient)" opacity="0.4">
+    <animateTransform attributeName="transform" type="translate" from="-200 0" to="200 0" dur="6s" repeatCount="indefinite"/>
+  </path>
 
-  <!-- Clean Text -->
-  <text x="250" y="240" text-anchor="middle" font-size="25" fill="white" font-family="Arial" font-weight="bold"
-        stroke="black" stroke-width="1" style="paint-order: stroke;">
-    Hi 👋, I'm Ravi Kumar
-  </text>
+  <!-- Animated Wave 2 -->
+  <path d="M0 220 Q 200 120 400 220 T 800 220 V 300 H 0 Z" fill="url(#wave-gradient)" opacity="0.3">
+    <animateTransform attributeName="transform" type="translate" from="200 0" to="-200 0" dur="8s" repeatCount="indefinite"/>
+  </path>
 
-  <text x="250" y="270" text-anchor="middle" font-size="15" fill="white" font-family="Arial"
-        stroke="black" stroke-width="0.5" style="paint-order: stroke;">
-    Full Stack MERN Developer
-  </text>
+  <!-- Animated Border -->
+  <rect x="10" y="10" width="780" height="280" rx="20" ry="20"
+        fill="none" stroke="url(#border-gradient)" stroke-width="6"
+        stroke-dasharray="1000" stroke-dashoffset="1000">
+    <animate attributeName="stroke-dashoffset" from="1000" to="0" dur="3s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Text -->
+  <text x="50%" y="50%" text-anchor="middle" font-size="40" font-family="Arial" fill="#ffffff" dy="-10">Ravi Kumar</text>
+  <text x="50%" y="60%" text-anchor="middle" font-size="24" font-family="Arial" fill="#00ffff">Full Stack MERN Developer</text>
 </svg>
